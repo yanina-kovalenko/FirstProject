@@ -41,9 +41,4 @@ public class Car {
         ownerName = newOwnerName;
     }
 
-    //4. inner class //  it uses very seldom
-    private class Test {
-
-    }
-
 }
