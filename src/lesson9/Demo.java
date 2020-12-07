@@ -7,6 +7,8 @@ public class Demo {
         Company company = new Company();
         System.out.println(company.countryFounded);
         System.out.println(company.getName());
+        
+        company. = "New Value";
 
         company.name = "IBM";
 
