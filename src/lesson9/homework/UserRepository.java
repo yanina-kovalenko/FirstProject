@@ -18,7 +18,7 @@ public class UserRepository extends User {
 
         System.out.println(userRepository.getUserByName("Nadia"));
         System.out.println(userRepository.getUserBySessionId("10"));
-        System.out.println( userRepository.getUserById(342243));
+        System.out.println(userRepository.getUserById(342243));
 
         System.out.println(userRepository.findById(909090));
         userRepository.save(users[4]);
@@ -62,15 +62,14 @@ public class UserRepository extends User {
 
     public User save(User user) {
 
-        for(int i = 0; i < users.length; i++) {
-            users[i] = users[i++];
-        }
+//        for(int i = 0; i < users.length; i++) {
+////            users[i] = users[i++];
+//            System.out.println(users[i]);
+//        }
         return user;
     }
 
     private long findById(long id) {
         return this.getId();
     }
-
-
 }
