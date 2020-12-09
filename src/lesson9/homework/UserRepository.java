@@ -11,6 +11,10 @@ public class UserRepository extends User {
         System.out.println(Arrays.toString(getUserNames()));
         System.out.println(Arrays.toString(getUserIds()));
         userRepository.getUserNameById(6);
+
+        System.out.println(userRepository.getUserByName("Nadia"));
+        System.out.println(userRepository.getUserBySessionId("342243"));
+        System.out.println( userRepository.getUserById(342243));
     }
 
     public UserRepository(User[] users) {
@@ -33,5 +37,17 @@ public class UserRepository extends User {
 
     public String getUserNameById(long id) {
         return this.getName();
+    }
+
+    public String getUserByName(String name) {
+        return this.getName();
+    }
+
+    public long getUserById(long id) {
+        return this.getId();
+    }
+
+    public String getUserBySessionId(String sessionId) {
+        return this.getSessionId();
     }
 }
