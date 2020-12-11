@@ -1,18 +1,11 @@
 package lesson9.homework;
 
 public class User {
-    private long id;
-    private String name;
-    private String sessionId;
+    long id;
+    String name;
+    String sessionId;
 
     public User() {
-    }
-
-    public static void main(String[] args) {
-        User user = new User();
-        User name = new User(456789, "Yana", "8");
-        User id = new User(909090, "Nadia", "9");
-        User sessionId = new User(23232323, "Nastia", "10");
     }
 
     public User(long id, String name, String sessionId) {
@@ -33,4 +26,12 @@ public class User {
         return sessionId;
     }
 
+    @Override
+    public String toString() {
+        return "User{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", sessionId='" + sessionId + '\'' +
+                '}';
+    }
 }
