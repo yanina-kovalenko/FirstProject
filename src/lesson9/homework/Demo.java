@@ -26,8 +26,14 @@ public class Demo {
         System.out.println(Arrays.toString(userRepository.getUserNames()));
 
         System.out.println(Arrays.toString(userRepository.getUserIds()));
-        userRepository.getUserNames();
-//        System.out.println(users[0]);
+
         System.out.println(userRepository.getUserNameById(333333));
+
+//        System.out.println(users[0]);
+        System.out.println(userRepository.getUserByName("Jeniffer"));
+
+        System.out.println(userRepository.getUserById(444444));
+
+        System.out.println(userRepository.getUserBySessionId("101"));
     }
 }
