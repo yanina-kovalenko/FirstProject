@@ -10,14 +10,28 @@ public class UserRepository extends User {
     }
 
     public String[] getUserNames() {
+        int count = 0;
         String[] names = new String[users.length];
 
         for (int i = 0; i < users.length; i++) {
             if (users[i] != null) {
                 names[i] = users[i].getName();
+                count++;
             }
         }
-        return names;
+
+        String[] results = new String[count];
+
+        int index = 0;
+        int resIndex = 0;
+        for (int i = 0; i < users.length; i++) {
+            if (users[i] != null) {
+                results[resIndex] = names[index];
+                resIndex++;
+            }
+            index++;
+        }
+        return results;
     }
 
     public long[] getUserIds() {
@@ -41,7 +55,7 @@ public class UserRepository extends User {
     }
 
     public User getUserByName(String name) {
-        for(int i = 0; i < users.length; i++) {
+        for (int i = 0; i < users.length; i++) {
             if (users[i] != null && users[i].getName() == name) {
                 return users[i];
             }
@@ -49,8 +63,8 @@ public class UserRepository extends User {
         return null;
     }
 
-    public User getUserById(long id) {
-        for(int i = 0; i < users.length; i++) {
+    private User findById(long id) {
+        for (int i = 0; i < users.length; i++) {
             if (users[i] != null && users[i].getId() == id) {
                 return users[i];
             }
@@ -59,9 +73,38 @@ public class UserRepository extends User {
     }
 
     public User getUserBySessionId(String sessionId) {
-        for(int i = 0; i < users.length; i++) {
+        for (int i = 0; i < users.length; i++) {
             if (users[i] != null && users[i].getSessionId() == sessionId) {
                 return users[i];
+            }
+        }
+        return null;
+    }
+
+    public User save(User user) {
+        // 1. проверить существует ли такой юзер в базе
+        // 2. если юзер существует - возвращать нал
+        // 3. если юзер не существует - добавить и его же вернуть
+        // User save(User user) - будет добавлять юзера и возвращать его
+        //
+        // Используйте метод с предыдущих задач для нахождение юзера по id.
+
+//        for (int i = 0; i < users.length; i++) {
+//            if (users[i] == user) {
+//                return null;
+//            }
+//        }
+
+        for (int i = 0; i < users.length; i++) {
+            if (findById(user.getId()) == user) {
+                return null;
+            }
+        }
+
+        for (int i = 0; i < users.length; i++) {
+            if (users[i] == null) {
+                users[i] = user;
+                return user;
             }
         }
         return null;
