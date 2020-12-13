@@ -109,4 +109,22 @@ public class UserRepository extends User {
         }
         return null;
     }
+
+    public User update(User user) {
+        for (int i = 0; i < users.length; i++) {
+            if (findById(user.getId()) == user) {
+                users[i] = user;
+                return user;
+            }
+        }
+        return null;
+    }
+
+    public void delete(long id) {
+        for (int i = 0; i < users.length; i++) {
+            if (users[i] != null && users[i].getId() == id) {
+                users[i] = null;
+            }
+        }
+    }
 }
