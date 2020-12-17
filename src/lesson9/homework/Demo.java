@@ -55,12 +55,12 @@ public class Demo {
        // case 3 to show newly added user
         userRepository.save(user);
         System.out.println(Arrays.toString(userRepository.getUserNames()));
-//        userRepository.save(user2);
-//        System.out.println(Arrays.toString(userRepository.getUserNames()));
+        userRepository.save(user2);
+        System.out.println(Arrays.toString(userRepository.getUserNames()));
 
         // for update user
-//        System.out.println(userRepository.update(users[5] = new User(99999, "Alina4", "106")));
-//        System.out.println(userRepository.update(users[1] = users[3]));
+        System.out.println(userRepository.update(users[5] = new User(99999, "Alina4", "106")));
+        System.out.println(userRepository.update(users[1] = users[3]));
 
         System.out.println(userRepository.update(user));
         System.out.println(Arrays.toString(userRepository.getUserNames()));

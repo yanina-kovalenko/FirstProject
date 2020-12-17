@@ -11,34 +11,41 @@ public class UserRepository extends User {
 
     public String[] getUserNames() {
         int count = 0;
-        String[] names = new String[users.length];
 
         for (int i = 0; i < users.length; i++) {
             if (users[i] != null) {
-                names[i] = users[i].getName();
                 count++;
             }
         }
 
         String[] results = new String[count];
 
-        int index = 0;
         int resIndex = 0;
         for (int i = 0; i < users.length; i++) {
-            if (users[i] != null) {
-                results[resIndex] = names[index];
+            if(users[i] != null) {
+                results[resIndex] = users[i].getName();
                 resIndex++;
             }
-            index++;
         }
         return results;
     }
 
     public long[] getUserIds() {
-        long[] ids = new long[users.length];
+        int count = 0;
+
         for (int i = 0; i < users.length; i++) {
             if (users[i] != null) {
-                ids[i] = users[i].getId();
+                count++;
+            }
+        }
+
+        long[] ids = new long[count];
+
+        int resIndex = 0;
+        for (int i = 0; i < users.length; i++) {
+            if(users[i] != null) {
+                ids[resIndex] = users[i].getId();
+                resIndex++;
             }
         }
         return ids;
@@ -63,7 +70,7 @@ public class UserRepository extends User {
         return null;
     }
 
-    private User findById(long id) {
+    public User findById(long id) {
         for (int i = 0; i < users.length; i++) {
             if (users[i] != null && users[i].getId() == id) {
                 return users[i];
@@ -112,7 +119,7 @@ public class UserRepository extends User {
 
     public User update(User user) {
         for (int i = 0; i < users.length; i++) {
-            if (findById(user.getId()) == user) {
+            if (users[i] != null && users[i].getId() == id) {
                 users[i] = user;
                 return user;
             }
