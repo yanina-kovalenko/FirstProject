@@ -15,7 +15,7 @@ public class FurnitureOrder extends Order {
     public void validateOrder() {
         if (getCustomerOwned() != null) {
             if (isRangeContainsValue(allowedCities, getShipFromCity()) && !getCustomerOwned().getName().equalsIgnoreCase("Test") && getBasePrice() >= 500) {
-                calculatePrice();
+                setDateConfirmed(new Date());
                 confirmShipping();
             }
         }

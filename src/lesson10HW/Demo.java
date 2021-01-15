@@ -43,6 +43,8 @@ public class Demo {
             }
             el.validateOrder();
             System.out.println("\n\n" + el.toString());
+            el.calculatePrice();
+            System.out.println("\n\n" + el.toString());
         }
     }
 }

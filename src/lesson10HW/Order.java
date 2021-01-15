@@ -28,8 +28,8 @@ public abstract class Order {
     abstract void calculatePrice();
 
     public void confirmShipping() {
-        if (dateConfirmed == null) {
-            dateConfirmed = new Date();
+        if (dateShipped == null) {
+            dateShipped = new Date();
         }
     }
 
@@ -49,6 +49,7 @@ public abstract class Order {
                 + "\nitemName " + itemName
                 + "\ndateCreated " + dateCreated
                 + "\ndateConfirmed " + dateConfirmed
+                + "\ndateShipped " + dateShipped
                 + "\nshipFromCity " + shipFromCity
                 + "\nshipToCity " + shipToCity
                 + "\nbasePrice " + basePrice

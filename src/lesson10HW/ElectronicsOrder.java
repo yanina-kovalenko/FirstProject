@@ -23,8 +23,8 @@ public class ElectronicsOrder extends Order {
             if (isRangeContainsValue(allowedCities, getShipFromCity()) &&
                     isRangeContainsValue(allowedCities, getShipToCity()) &&
                     getCustomerOwned().getGender() == "female" && getBasePrice() >= 100) {
-                calculatePrice();
-                confirmShipping();
+               setDateConfirmed(new Date());
+               confirmShipping();
             }
         }
     }
