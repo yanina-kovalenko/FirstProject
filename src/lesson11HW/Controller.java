@@ -34,19 +34,16 @@ public class Controller {
     }
 
     public Room cheapestRoom() {
-        Room[] results = null;
+        Room cheapest = null;
         for (API api : apis) {
             if (api != null) {
-                results = addAll(api.getAll(), results);
-            }
-        }
-        Room cheapest = null;
-        for (Room room : results) {
-            if (cheapest == null) {
-                cheapest = room;
-            }
-            if (room.getPrice() < cheapest.getPrice()) {
-                cheapest = room;
+                for (Room room : api.getAll()) {
+                    if (cheapest == null) {
+                        cheapest = room;
+                    } else {
+                        cheapest = room.getPrice() < cheapest.getPrice() ? room : cheapest;
+                    }
+                }
             }
         }
         return cheapest;

@@ -13,7 +13,8 @@ public class GoogleAPI implements API {
         int index = 0;
         for (Room room : rooms) {
             if (room != null) {
-                if (room.getPrice() == price && room.getPersons() == persons && room.getCityName().equals(city) && room.getHotelName().equals(hotel)) {
+                if (room.getPrice() == price && room.getPersons() == persons && room.getCityName().equals(city) &&
+                        room.getHotelName().equals(hotel)) {
                     results[index++] = room;
                 }
             }

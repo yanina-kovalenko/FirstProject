@@ -13,7 +13,8 @@ public class BookingComAPI implements API {
         int index = 0;
         for (Room room : rooms) {
             if (room != null) {
-                if (Utils.checkIsValueInRange(room.getPrice(), price, 50) && room.getPersons() == persons && room.getCityName().equals(city) && room.getHotelName().equals(hotel)) {
+                if (room.getPrice() >= (price - 50) && room.getPrice() <= (price + 50) && room.getPersons() == persons
+                        && room.getCityName().equals(city) && room.getHotelName().equals(hotel)) {
                     results[index++] = room;
                 }
             }
