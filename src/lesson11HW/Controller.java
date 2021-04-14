@@ -1,6 +1,7 @@
 package lesson11HW;
 
 public class Controller {
+
     API[] apis;
 
     public Controller(API[] apis) {
@@ -11,7 +12,7 @@ public class Controller {
         Room[] results = null;
         for (API api : apis) {
             if (api != null) {
-                results = addAll(api.findRooms(price, persons, city, hotel), results);
+                results = api.findRooms(price, persons, city, hotel);
             }
         }
         return results;
@@ -36,13 +37,9 @@ public class Controller {
     public Room cheapestRoom() {
         Room cheapest = null;
         for (API api : apis) {
-            if (api != null) {
-                for (Room room : api.getAll()) {
-                    if (cheapest == null) {
-                        cheapest = room;
-                    } else {
-                        cheapest = room.getPrice() < cheapest.getPrice() ? room : cheapest;
-                    }
+            for (Room room : api.getAll()) {
+                if (cheapest == null || room.getPrice() < cheapest.getPrice()) {
+                    cheapest = room;
                 }
             }
         }
